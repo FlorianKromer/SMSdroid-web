@@ -1,0 +1,8 @@
+.logo img {
+    display: inline;
+    max-height: 100%;
+    max-width: none;
+    padding-bottom: 4px;
+}
+
+.logo span {display: none;}
