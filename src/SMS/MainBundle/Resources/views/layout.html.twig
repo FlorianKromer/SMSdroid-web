@@ -1,0 +1,46 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+	{% block navbar %}
+	    <!-- Static navbar -->
+	    <nav class="navbar navbar-default" role="navigation">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="{{path('sms_main_index')}}">Ligue 2014/2015</a>
+	        </div>
+	        <div class="navbar-collapse collapse">
+	            {{ knp_menu_render('main',{'currentClass': 'active'}) }}
+	        </div><!--/.nav-collapse -->
+	      </div><!--/.container -->
+	    </nav>
+	{% endblock %}
+	{% block container %}
+
+	{% endblock %}
+	{% block footer %}
+        <footer class="footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <ul class="footer__lang f16 list-inline">
+                  <li class="flag fr">France</li>
+                  <li class="flag de">Deutschland</li>
+                  <li class="flag nl">..</li>
+                </ul>
+              </div>
+              <div class="col-md-8">
+                <p class="text-right">Dernière mise à jour: 09/11/2014</p>
+              </div>
+            </div>
+          </div>
+        </footer> 
+	{% endblock %}
+
+{% endblock body %}

@@ -1,0 +1,37 @@
+{% extends 'SMSMainBundle::layout.html.twig' %}
+{% block container %}
+<main class="calendar container">
+          <div class="row">
+            <div class="col-sm-3 col-md-2">
+              <div class="list-group">
+                <a class="list-group-item active" href="#">Bayern Munich</a>
+                <a class="list-group-item" href="#">Brem</a>
+                <a class="list-group-item" href="#">VfB</a>
+                <a class="list-group-item" href="#">Cott</a>
+              </div>
+            </div>
+            <div class="col-sm-9  col-md-10">
+              <table class="table table-hover table-condensed">
+                <tbody>
+                  <tr>
+                    <td>23/05/2009 15:30</td>
+                    <td><a href="">Energie Cottbus</a>   -    <a class="active" href="">Bayer Leverkusen</a></td>
+                    <td>3 : 0</td>
+                  </tr>
+                  <tr>
+                    <td>23/05/2009 15:30</td>
+                    <td><a href="">Eintracht Frankfurt</a>   -    <a class="active"  href="">Hamburger SV</a></td>
+                    <td>2 : 3</td>
+                  </tr>
+                  <tr>
+                    <td>23/05/2009 15:30</td>
+                    <td><a href="">Arminia Bielefeld</a>   -    <a href="">Hannover 96</a></td>
+                    <td>2 : 2</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+        
+{% endblock %}

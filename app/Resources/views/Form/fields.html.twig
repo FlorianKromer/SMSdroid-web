@@ -1,0 +1,45 @@
+{% extends "form_div_layout.html.twig" %}
+
+{% block form_label %}
+{% spaceless %}
+    {% if label is not sameas(false) %}
+        {% if not compound %}
+            {% set label_attr = label_attr|merge({'for': id}) %}
+        {% endif %}
+        {% if required %}
+            {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+        {% endif %}
+        {% if label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+        <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) | raw}}{{- block('label_asterisk') }}</label>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_label %}
+
+{% block form_row %}
+{% spaceless %}
+    <div class="form__field form__field--{{ form.vars.name }} {% if required %}form__field--required{% endif %} {% if errors|length > 0 %}form__field--error{% elseif value is not empty %}form__field--valid{% endif %}">
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+
+            {% if compound %}
+                {% for error in errors %}
+                    <span class="msg-error">{{ error.message | raw }}</span>
+                {% endfor %}
+            {% else %}
+                {% for error in errors %}
+                    <span class="msg-error">{{ error.message | trans ({}, "validators") | raw}}</span>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}

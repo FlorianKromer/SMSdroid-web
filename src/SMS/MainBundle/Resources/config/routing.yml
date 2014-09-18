@@ -1,0 +1,18 @@
+sms_main_index:
+    path:     /
+    defaults: { _controller: SMSMainBundle:Default:index }
+sms_main_evolution:
+    path:     /evolution
+    defaults: { _controller: SMSMainBundle:Default:evolution }
+sms_main_calendar:
+    path:     /calendar
+    defaults: { _controller: SMSMainBundle:Default:calendar }
+sms_main_table:
+    path:     /table
+    defaults: { _controller: SMSMainBundle:Default:table }
+sms_main_league:
+    path:     /league
+    defaults: { _controller: SMSMainBundle:Default:league }
+sms_main_stats:
+    path:     /league
+    defaults: { _controller: SMSMainBundle:Default:stats }

@@ -1,0 +1,51 @@
+services:
+    sms_main.admin.team:
+        class: SMS\MainBundle\Admin\TeamAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Team" }
+        arguments:
+            - ~
+            - SMS\MainBundle\Entity\Team
+            - ~
+        calls:
+            - [ setTranslationDomain, [SMSMainBundle]]
+    sms_main.admin.days:
+        class: SMS\MainBundle\Admin\DaysAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Days" }
+        arguments:
+            - ~
+            - SMS\MainBundle\Entity\Days
+            - ~
+        calls:
+            - [ setTranslationDomain, [SMSMainBundle]]
+    sms_main.admin.league:
+        class: SMS\MainBundle\Admin\LeagueAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "League" }
+        arguments:
+            - ~
+            - SMS\MainBundle\Entity\League
+            - ~
+        calls:
+            - [ setTranslationDomain, [SMSMainBundle]]
+    sms_main.admin.fixture:
+        class: SMS\MainBundle\Admin\FixtureAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Fixture" }
+        arguments:
+            - ~
+            - SMS\MainBundle\Entity\Fixture
+            - ~
+        calls:
+            - [ setTranslationDomain, [SMSMainBundle]]
+    sms_main.admin.player:
+        class: SMS\MainBundle\Admin\PlayerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Player" }
+        arguments:
+            - ~
+            - SMS\MainBundle\Entity\Player
+            - ~
+        calls:
+            - [ setTranslationDomain, [SMSMainBundle]]
