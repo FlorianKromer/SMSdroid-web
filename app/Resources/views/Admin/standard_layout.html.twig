@@ -1,8 +1,0 @@
-{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
-
-{% block stylesheets %}
-    {{ parent() }}
-    {% stylesheets 'bundles/smsdroid/css/style.css' filter='cssrewrite' %}
-	    <link rel="stylesheet" href="{{ asset_url }}" />
-	{% endstylesheets %}
-{% endblock %}
