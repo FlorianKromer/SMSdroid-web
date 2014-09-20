@@ -1,18 +1,21 @@
 sms_main_index:
     path:     /
     defaults: { _controller: SMSMainBundle:Default:index }
-sms_main_evolution:
-    path:     /evolution
-    defaults: { _controller: SMSMainBundle:Default:evolution }
-sms_main_calendar:
-    path:     /calendar
-    defaults: { _controller: SMSMainBundle:Default:calendar }
-sms_main_table:
-    path:     /table
-    defaults: { _controller: SMSMainBundle:Default:table }
-sms_main_league:
-    path:     /league
-    defaults: { _controller: SMSMainBundle:Default:league }
-sms_main_stats:
-    path:     /league
-    defaults: { _controller: SMSMainBundle:Default:stats }
+sms_main_compte:
+    path:     /account
+    defaults: { _controller: SMSMainBundle:Default:account }
+sms_main_services:
+    path:     /services
+    defaults: { _controller: SMSMainBundle:Default:services }
+sms_main_about:
+    path:     /about
+    defaults: { _controller: SMSMainBundle:Default:about }
+sms_main_contact:
+    path:     /contact
+    defaults: { _controller: SMSMainBundle:Default:contact }
+sms_main_news:
+    path:     /blog
+    defaults: { _controller: SMSMainBundle:Blog:blog }
+sms_main_article:
+    path:     /blog/{id}
+    defaults: { _controller: SMSMainBundle:Blog:article }

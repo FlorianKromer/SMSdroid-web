@@ -20,12 +20,18 @@ class MenuBuilder
     public function createMainMenu(Request $request)
     {
         $menu = $this->factory->createItem('root');
-$menu->setChildrenAttributes(array('class' => 'nav navbar-nav'));
-        $menu->addChild('Résultat/Classement', array('route' => 'sms_main_league'));
-        $menu->addChild('Calendrier', array('route' => 'sms_main_calendar'));
-        $menu->addChild('Tableau', array('route' => 'sms_main_table'));
-        $menu->addChild('Evolution', array('route' => 'sms_main_evolution'));
-        $menu->addChild('Stats', array('route' => 'sms_main_stats'));
+        $menu->setChildrenAttributes(array('class' => 'nav navbar-nav navbar-right'));
+        $menu->addChild('News', array('route' => 'sms_main_news'));
+        // $about = $menu->addChild('menu_core.menu.about', array('route' => $routeName ))
+        //         ->setLabel($this->translator->trans('menu_core.menu.about', array(), 'menu' ));
+
+
+        $menu->addChild('Informations')->setAttribute('dropdown', true);
+        $menu['Informations']->addChild('Services', array('route' => 'sms_main_services'));
+        $menu['Informations']->addChild('A propos', array('route' => 'sms_main_about'));
+
+        $menu->addChild('Mon compte', array('route' => 'sms_main_compte'));
+        $menu->addChild('Contact', array('route' => 'sms_main_contact'));
 
         return $menu;
     }

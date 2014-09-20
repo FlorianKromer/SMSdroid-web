@@ -10,21 +10,21 @@ class DefaultController extends Controller
 	{
 		return $this->render('SMSMainBundle:Default:index.html.twig');
 	}
-	public function leagueAction()
+	public function accountAction()
 	{
-		return $this->render('SMSMainBundle:Default:league.html.twig');
+		return $this->render('SMSMainBundle:Default:404.html.twig');
 	}
-	public function tableAction()
+	public function servicesAction()
 	{
-		return $this->render('SMSMainBundle:Default:table.html.twig');
+		return $this->render('SMSMainBundle:Default:services.html.twig');
 	}
-	public function calendarAction()
+	public function contactAction()
 	{
-		return $this->render('SMSMainBundle:Default:calendar.html.twig');
+		return $this->render('SMSMainBundle:Default:contact.html.twig');
 	}
-	public function evolutionAction()
+	public function aboutAction()
 	{
-		return $this->render('SMSMainBundle:Default:evolution.html.twig');
+		return $this->render('SMSMainBundle:Default:about.html.twig');
 	}
 	public function statsAction()
 	{

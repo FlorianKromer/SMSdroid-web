@@ -3,44 +3,31 @@
 {% block body %}
 
 	{% block navbar %}
-	    <!-- Static navbar -->
-	    <nav class="navbar navbar-default" role="navigation">
-	      <div class="container">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <a class="navbar-brand" href="{{path('sms_main_index')}}">Ligue 2014/2015</a>
-	        </div>
-	        <div class="navbar-collapse collapse">
-	            {{ knp_menu_render('main',{'currentClass': 'active'}) }}
-	        </div><!--/.nav-collapse -->
-	      </div><!--/.container -->
-	    </nav>
+	    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path("sms_main_index") }}">SMSdroid</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            	{{ knp_menu_render('main',{'currentClass': 'active','template': 'SMSMainBundle:Menu:knp_menu.html.twig'}) }}
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 	{% endblock %}
 	{% block container %}
 
 	{% endblock %}
-	{% block footer %}
-        <footer class="footer">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4">
-                <ul class="footer__lang f16 list-inline">
-                  <li class="flag fr">France</li>
-                  <li class="flag de">Deutschland</li>
-                  <li class="flag nl">..</li>
-                </ul>
-              </div>
-              <div class="col-md-8">
-                <p class="text-right">Dernière mise à jour: 09/11/2014</p>
-              </div>
-            </div>
-          </div>
-        </footer> 
-	{% endblock %}
+
+
 
 {% endblock body %}

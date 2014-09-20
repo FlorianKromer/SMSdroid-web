@@ -1,40 +1,50 @@
 <!doctype html>
 <html class="no-js" lang="{{ app.request.locale }}" {{ sonata_seo_html_attributes() }}>
-    <head {{ sonata_seo_head_attributes() }}>
+<head {{ sonata_seo_head_attributes() }}>
 
-        {{ sonata_seo_title() }}
-        {{ sonata_seo_metadatas() }}
-        {{ sonata_seo_link_canonical() }}
-        {{ sonata_seo_lang_alternates() }}
+    {{ sonata_seo_title() }}
+    {{ sonata_seo_metadatas() }}
+    {{ sonata_seo_link_canonical() }}
+    {{ sonata_seo_lang_alternates() }}
 
-        {%  block favicon %}{%  endblock favicon %}
+    {%  block favicon %}{%  endblock favicon %}
 
-        {% block stylesheets %}
-		<link rel="stylesheet" href="{{ asset('bundles/smsmain/css/bootstrap.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('bundles/smsmain/css/style.css') }}">
-		{% endblock stylesheets %}
-        {% block javascripts_header %}{% endblock javascripts_header %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/smsmain/css/bootstrap-flatly.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/smsmain/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/smsmain/css/style.css') }}">
 
-    </head>
-    <body {% block bodyattributes %}{% endblock bodyattributes %}>
-        <!--[if lt IE 8]>
-                <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" title="upgrade your browser">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    {% endblock stylesheets %}
+    {% block javascripts_header %}
+    {% endblock javascripts_header %}
 
-        {% block body_start %}{% endblock body_start %}
+</head>
+<body {% block bodyattributes %}{% endblock bodyattributes %}>
+    <!--[if lt IE 8]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" title="upgrade your browser">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-        {% block body %}{% endblock body %}
+    {% block body_start %}{% endblock body_start %}
 
-        {% block javascripts %}
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="{{ asset('bundles/smsmain/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
-{% endblock javascripts %}
+    {% block body %}{% endblock body %}
 
-        {% block analytics %}{% endblock analytics %}
+    {% block javascripts %}
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="{{ asset('bundles/smsmain/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        <script>
+        $('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
+        </script>
+    {% endblock javascripts %}
 
-        {% block body_end %}{% endblock body_end %}
-    </body>
+    {% block analytics %}
+    {% endblock analytics %}
+
+    {% block body_end %}
+    {% endblock body_end %}
+</body>
 </html>
