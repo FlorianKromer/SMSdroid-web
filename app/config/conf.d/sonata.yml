@@ -1,10 +1,6 @@
 sonata_admin:
     title:      Admin
-    title_logo: bundles/smsdroid/img/logo.svg
-    templates:
-        layout:  ::Admin:standard_layout.html.twig
-        search:              SonataAdminBundle:Core:search.html.twig
-        search_result_block: SonataAdminBundle:Block:block_search_result.html.twig
+    title_logo: bundles/smsmain/img/logo.png
     security:
         handler: sonata.admin.security.handler.acl
         # acl security information
@@ -20,28 +16,80 @@ sonata_admin:
         object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]
     dashboard:
         groups:
-            nvligue.admin.group.content:
+            smsmain.admin.group.content:
                 label: Dashboard
                 label_catalogue: SMSMainBundle
+                icon: '<i class="fa fa-cogs"></i>'
                 items:
                     - sms_main.admin.team
                     - sms_main.admin.days
                     - sms_main.admin.league
                     - sms_main.admin.fixture
                     - sms_main.admin.player
-
-
+        blocks:
+            - { position: left, class: 'col-md-6', type: sonata.admin.block.admin_list}
 
 sonata_block:
     default_contexts: [cms]
     blocks:
-        # Enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
-            contexts:   [admin]
-        # Your other blocks
-        sonata.user.block.menu:    # used to display the menu in profile pages
-        sonata.user.block.account: # used to display menu option (login option)
-        sonata.block.service.text: # used to if you plan to use Sonata user routes
+            contexts: [admin]
         sonata.admin.block.search_result:
             contexts: [admin]
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+        sonata.block.service.text:
+        sonata.block.service.container:
 
+
+
+sonata_formatter:
+    formatters:
+        markdown:
+            service: sonata.formatter.text.markdown
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+        text:
+            service: sonata.formatter.text.text
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+        rawhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+        richhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+        twig:
+            service: sonata.formatter.text.twigengine
+            extensions: [] # Twig formatter cannot have extensions
+
+
+
+sonata_notification:
+    backend: sonata.notification.backend.doctrine
+    admin:
+        enabled: true
+
+    backends:
+        doctrine:
+            max_age:      86400     # max age in second
+            pause:        500000    # delay in microseconds
+            states:                 # raising errors level
+                in_progress: 10
+                error:       20
+                open:        100
+                done:        10000

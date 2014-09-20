@@ -2,7 +2,7 @@ services:
     sms_main.admin.team:
         class: SMS\MainBundle\Admin\TeamAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Team" }
+            - { name: sonata.admin, manager_type: orm, group: "Team", label: "Team" }
         arguments:
             - ~
             - SMS\MainBundle\Entity\Team
@@ -12,7 +12,7 @@ services:
     sms_main.admin.days:
         class: SMS\MainBundle\Admin\DaysAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Days" }
+            - { name: sonata.admin, manager_type: orm, group: "Days", label: "Days" }
         arguments:
             - ~
             - SMS\MainBundle\Entity\Days
@@ -22,7 +22,7 @@ services:
     sms_main.admin.league:
         class: SMS\MainBundle\Admin\LeagueAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "League" }
+            - { name: sonata.admin, manager_type: orm, group: "League", label: "League" }
         arguments:
             - ~
             - SMS\MainBundle\Entity\League
@@ -32,7 +32,7 @@ services:
     sms_main.admin.fixture:
         class: SMS\MainBundle\Admin\FixtureAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Fixture" }
+            - { name: sonata.admin, manager_type: orm, group: "Fixture", label: "Fixture" }
         arguments:
             - ~
             - SMS\MainBundle\Entity\Fixture
@@ -42,7 +42,7 @@ services:
     sms_main.admin.player:
         class: SMS\MainBundle\Admin\PlayerAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Player" }
+            - { name: sonata.admin, manager_type: orm, group: "Player", label: "Player" }
         arguments:
             - ~
             - SMS\MainBundle\Entity\Player

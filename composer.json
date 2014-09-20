@@ -26,12 +26,18 @@
         "sonata-project/user-bundle": "dev-master",
         "sonata-project/seo-bundle": "dev-master",
         "sonata-project/intl-bundle": "dev-master",
+        "sonata-project/news-bundle": "dev-master",
         "jms/i18n-routing-bundle": "1.*",
         "jms/translation-bundle": "1.*",
         "jms/di-extra-bundle": "~1.4",
         "friendsofsymfony/jsrouting-bundle": "@stable",
-        "knplabs/knp-menu": "~1.1",
-        "knplabs/knp-menu-bundle": "~1.1"
+        "knplabs/knp-menu-bundle": "2.0.*@dev",
+        "knplabs/knp-menu-bundle": "2.0.*@dev",
+        "sonata-project/notification-bundle": "dev-master",
+        "jms/serializer-bundle": "dev-master",
+        "sonata-project/formatter-bundle": "dev-master",
+        "sonata-project/markitup-bundle": "2.1.*@dev",
+        "egeloen/ckeditor-bundle": "~2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

@@ -7,6 +7,8 @@ imports:
     - { resource: conf.d/security.yml }
     - { resource: conf.d/seo.yml }
     - { resource: conf.d/translations.yml }
+    - { resource: conf.d/media.yml }
+    - { resource: conf.d/news.yml }
     - { resource: @SMSMainBundle/Resources/config/admin.yml }
 
 framework:
@@ -71,6 +73,7 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"
@@ -84,4 +87,3 @@ services:
         class: Twig_Extensions_Extension_Text
         tags:
             - name: twig.extension
-    
