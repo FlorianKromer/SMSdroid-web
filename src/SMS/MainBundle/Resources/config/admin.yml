@@ -1,51 +1,21 @@
 services:
-    sms_main.admin.team:
-        class: SMS\MainBundle\Admin\TeamAdmin
+    sms_main.admin.phone:
+        class: SMS\MainBundle\Admin\PhoneAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Team", label: "Team" }
+            - { name: sonata.admin, manager_type: orm, group: "Phone", label: "Phone" }
         arguments:
             - ~
-            - SMS\MainBundle\Entity\Team
+            - SMS\MainBundle\Entity\Phone
             - ~
         calls:
             - [ setTranslationDomain, [SMSMainBundle]]
-    sms_main.admin.days:
-        class: SMS\MainBundle\Admin\DaysAdmin
+    sms_main.admin.computer:
+        class: SMS\MainBundle\Admin\ComputerAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Days", label: "Days" }
+            - { name: sonata.admin, manager_type: orm, group: "Computer", label: "Computer" }
         arguments:
             - ~
-            - SMS\MainBundle\Entity\Days
-            - ~
-        calls:
-            - [ setTranslationDomain, [SMSMainBundle]]
-    sms_main.admin.league:
-        class: SMS\MainBundle\Admin\LeagueAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: "League", label: "League" }
-        arguments:
-            - ~
-            - SMS\MainBundle\Entity\League
-            - ~
-        calls:
-            - [ setTranslationDomain, [SMSMainBundle]]
-    sms_main.admin.fixture:
-        class: SMS\MainBundle\Admin\FixtureAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: "Fixture", label: "Fixture" }
-        arguments:
-            - ~
-            - SMS\MainBundle\Entity\Fixture
-            - ~
-        calls:
-            - [ setTranslationDomain, [SMSMainBundle]]
-    sms_main.admin.player:
-        class: SMS\MainBundle\Admin\PlayerAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: "Player", label: "Player" }
-        arguments:
-            - ~
-            - SMS\MainBundle\Entity\Player
+            - SMS\MainBundle\Entity\Computer
             - ~
         calls:
             - [ setTranslationDomain, [SMSMainBundle]]

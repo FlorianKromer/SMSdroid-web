@@ -6,19 +6,15 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class FixtureAdmin extends Admin
+class ComputerAdmin extends Admin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
 
         $formMapper
-            ->add('date', 'date', array('label' => 'Date'))
-            ->add('teamA', 'entity', array('class' => 'SMS\MainBundle\Entity\Team'))
-            ->add('teamB', 'entity', array('class' => 'SMS\MainBundle\Entity\Team'))
-            ->add('scoreB', 'integer', array('label' => 'Score TeamA'))
-            ->add('scoreA', 'integer', array('label' => 'Score TeamB'))
-            ->add('day', 'entity', array('class' => 'SMS\MainBundle\Entity\Days'))
+            ->add('name', 'text', array('label' => 'Name'))
+            ->add('user', 'entity', array('class' => 'Application\Sonata\UserBundle\Entity\User'))
         ;
     }
 
@@ -26,7 +22,7 @@ class FixtureAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('date')
+            ->add('user')
         ;
     }
 
@@ -34,7 +30,8 @@ class FixtureAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('date')
+            ->addIdentifier('name')
+            ->addIdentifier('user')
         ;
     }
 }

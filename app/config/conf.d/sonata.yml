@@ -21,11 +21,17 @@ sonata_admin:
                 label_catalogue: SMSMainBundle
                 icon: '<i class="fa fa-cogs"></i>'
                 items:
-                    - sms_main.admin.team
-                    - sms_main.admin.days
-                    - sms_main.admin.league
-                    - sms_main.admin.fixture
-                    - sms_main.admin.player
+                    - sms_main.admin.phone
+                    - sms_main.admin.computer
+                    - sonata.user.admin.user
+            smsmain.admin.group.blog:
+                label: Blog
+                label_catalogue: SMSMainBundle
+                icon: '<i class="fa fa-comments-o"></i>'
+                items:
+                    - sonata.news.admin.post
+                    - sonata.news.admin.comment
+
         blocks:
             - { position: left, class: 'col-md-6', type: sonata.admin.block.admin_list}
 
@@ -43,6 +49,7 @@ sonata_block:
 
 
 
+#SonataFormatterBundle
 sonata_formatter:
     formatters:
         markdown:
@@ -52,12 +59,14 @@ sonata_formatter:
                 - sonata.formatter.twig.gist
                 - sonata.media.formatter.twig
 
+
         text:
             service: sonata.formatter.text.text
             extensions:
                 - sonata.formatter.twig.control_flow
                 - sonata.formatter.twig.gist
                 - sonata.media.formatter.twig
+
 
         rawhtml:
             service: sonata.formatter.text.raw
@@ -66,6 +75,7 @@ sonata_formatter:
                 - sonata.formatter.twig.gist
                 - sonata.media.formatter.twig
 
+
         richhtml:
             service: sonata.formatter.text.raw
             extensions:
@@ -73,9 +83,15 @@ sonata_formatter:
                 - sonata.formatter.twig.gist
                 - sonata.media.formatter.twig
 
+
         twig:
             service: sonata.formatter.text.twigengine
             extensions: [] # Twig formatter cannot have extensions
+
+    ckeditor:
+        templates:
+            browser: 'SonataFormatterBundle:Ckeditor:browser.html.twig'
+            upload: 'SonataFormatterBundle:Ckeditor:upload.html.twig'
 
 
 
@@ -93,3 +109,23 @@ sonata_notification:
                 error:       20
                 open:        100
                 done:        10000
+
+sonata_classification:
+    class:
+        tag:        Application\Sonata\ClassificationBundle\Entity\Tag
+        category:   Application\Sonata\ClassificationBundle\Entity\Category
+        collection: Application\Sonata\ClassificationBundle\Entity\Collection
+
+    admin:
+        tag:
+            class:       Sonata\ClassificationBundle\Admin\TagAdmin
+            controller:  SonataAdminBundle:CRUD
+            translation: SonataClassificationBundle
+        category:
+            class:       Sonata\ClassificationBundle\Admin\CategoryAdmin
+            controller:  SonataAdminBundle:CRUD
+            translation: SonataClassificationBundle
+        collection:
+            class:       Sonata\ClassificationBundle\Admin\CollectionAdmin
+            controller:  SonataAdminBundle:CRUD
+            translation: SonataClassificationBundle

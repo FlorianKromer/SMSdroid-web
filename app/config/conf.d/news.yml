@@ -3,7 +3,7 @@ sonata_news:
     link:         http://sonata-project.org
     description:  Cool bundles on top of Symfony2
     salt:         'secureToken'
-    permalink_generator: sonata.news.permalink.date # sonata.news.permalink.category
+    permalink_generator: sonata.news.permalink.date
     permalink:
         date:     %%1$04d/%%2$02d/%%3$02d/%%4$s => 2012/02/01/slug
     comment:
@@ -14,11 +14,12 @@ sonata_news:
 
     class:
         post:       Application\Sonata\NewsBundle\Entity\Post
-        # tag:        Application\Sonata\NewsBundle\Entity\Tag
+        # tag:        Application\Sonata\ClassificationBundle\Entity\Tag
         comment:    Application\Sonata\NewsBundle\Entity\Comment
-        # category:   Application\Sonata\NewsBundle\Entity\Category
-        # media:      Application\Sonata\MediaBundle\Entity\Media
+        # category:   Application\Sonata\ClassificationBundle\Entity\Category
+        media:      Application\Sonata\MediaBundle\Entity\Media
         user:       Application\Sonata\UserBundle\Entity\User
+        # collection: Application\Sonata\ClassificationBundle\Entity\Collection
 
     admin:
         post:
@@ -37,3 +38,32 @@ sonata_news:
         #     class:       Sonata\NewsBundle\Admin\TagAdmin
         #     controller:  SonataAdminBundle:CRUD
         #     translation: SonataNewsBundle
+
+
+ivory_ck_editor:
+    default_config: news
+    configs:
+        news:
+            filebrowserBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserImageBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            # Display images by default when clicking the image dialog browse button
+            filebrowserImageBrowseRouteParameters:
+                provider: sonata.media.provider.image
+            filebrowserUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserUploadRouteParameters:
+                provider: sonata.media.provider.file
+            # Upload file as image when sending a file from the image dialog
+            filebrowserImageUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserImageUploadRouteParameters:
+                provider: sonata.media.provider.image
+                context: my-context # Optional, to upload in a custom context
+            toolbar: "my_toolbar_1"
+            uiColor: "#000000"
+    toolbars:
+        configs:
+            my_toolbar_1: [ "@document", "/", "@link" , "/", "@tool" ]
+            my_toolbar_2: [ "@document", "/", "@tool" ]
+        items:
+            document: [ "Source", "-", "Save" ]
+            link:     [ "Anchor" ]
+            tool:     [ "Maximize" ]

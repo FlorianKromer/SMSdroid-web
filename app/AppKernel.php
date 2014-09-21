@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Sonata\NotificationBundle\SonataNotificationBundle(),
+            new Application\Sonata\NotificationBundle\ApplicationSonataNotificationBundle(),
 
             //Seo
             new Sonata\SeoBundle\SonataSeoBundle(),
@@ -44,15 +45,16 @@ class AppKernel extends Kernel
 
             //blog
             new JMS\SerializerBundle\JMSSerializerBundle(),
-            new Sonata\MarkItUpBundle\SonataMarkItUpBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Sonata\MarkItUpBundle\SonataMarkItUpBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Sonata\ClassificationBundle\SonataClassificationBundle(),
-            new Sonata\FormatterBundle\SonataFormatterBundle(),
+            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             new Sonata\NewsBundle\SonataNewsBundle(),
             new Application\Sonata\NewsBundle\ApplicationSonataNewsBundle(),
+            new Sonata\FormatterBundle\SonataFormatterBundle(),
 
             new SMS\MainBundle\SMSMainBundle(),
         );

@@ -6,16 +6,20 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class TeamAdmin extends Admin
+class PhoneAdmin extends Admin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
 
         $formMapper
-            ->add('name', 'text', array('label' => 'Team Title'))
-            ->add('fixtures', 'entity', array('class' => 'SMS\MainBundle\Entity\Fixture'))
-            ->add('players', 'entity', array('class' => 'SMS\MainBundle\Entity\Player'))
+            ->add('number', 'text', array('label' => 'Number'))
+            ->add('user',  'sonata_type_model_list', array(
+                    'label'=>'user',
+                    'btn_delete'    => false,
+                    'class' => 'Application\Sonata\UserBundle\Entity\User',
+                    'required' => false)
+                )
         ;
     }
 
@@ -23,7 +27,7 @@ class TeamAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('name')
+            ->add('user')
         ;
     }
 
@@ -31,7 +35,8 @@ class TeamAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('name')
+            ->addIdentifier('number')
+            ->addIdentifier('user')
         ;
     }
 }
